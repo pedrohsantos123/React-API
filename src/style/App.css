@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+font-family: Roboto;
+}
+
+.dashboard{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #262626;
+  justify-content: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  color: black;
+}
+
+.close-button {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+  float: right;
+}
+
+.card{
+  background-color: #FFFDFD;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+.card img{
+  width: 300px;
+  height: 200px;
+  border-bottom: 0.3px solid gray;
+  border-radius: 20px 20px 0 0 ;
+}
+.card h3{
+  padding: 0 5px;
+}
+
+.main{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #262626;
+  justify-content: center;
+  color: white;
+}

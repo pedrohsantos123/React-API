@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Card from "../src/components/Card";
+import Details from "../src/components/Details";
+import '../src/style/App.css';
 
-function App() {
+const App = () => {
+  const [paises, setPaises] = useState([]);
+  const [paisSelecionado, setPaisSelecionado] = useState(null);
+
+  useEffect(() => {
+    fetch('https://restcountries.com/v3.1/all')
+      .then(response => response.json())
+      .then(data => setPaises(data))
+      .catch(error => console.error(error));
+  }, []);
+
+  const IdentificadorPais = (pais) => {
+    setPaisSelecionado(pais);
+  };
+
+  const fecharModal = () => {
+    setPaisSelecionado(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1>Países do Mundo</h1>
+      <div className="dashboard">
+        {paises.map((pais) => (
+          <Card 
+            key={pais.cca3} 
+            pais={pais} 
+            onClick={IdentificadorPais} 
+          />
+        ))}
+      </div>
+      {paisSelecionado && (
+        <Details pais={paisSelecionado} onClose={fecharModal} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
